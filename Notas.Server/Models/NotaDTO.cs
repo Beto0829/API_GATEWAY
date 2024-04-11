@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Notas.Server.Models
 {
-    public class Nota
+    public class NotaDTO
     {
         public int Id { get; set; }
 
@@ -15,11 +15,5 @@ namespace Notas.Server.Models
         public required string Descripcion { get; set; }
 
         public int IdCategoria { get; set; }
-
-        public DateTime Fecha { get; set; }
-
-        [JsonIgnore]
-        public Categoria? Categoria { get; set; }
-
     }
 }

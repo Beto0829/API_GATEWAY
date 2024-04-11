@@ -24,6 +24,10 @@ namespace Notas.Server.Models
             modelBuilder.Entity<Categoria>()
                 .HasIndex(c => c.Nombre)
                 .IsUnique();
+
+            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 1, Nombre = "Sin categoria" });
+            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 2, Nombre = "Devops" });
+            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 3, Nombre = "Cloud" });
         }
 
     }

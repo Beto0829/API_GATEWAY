@@ -22,11 +22,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication();
+//app.UseAuthentication();
 
 app.UseAuthorization();
 
-app.UseRateLimiter();
+//app.UseRateLimiter();
 
 app.MapReverseProxy();
 

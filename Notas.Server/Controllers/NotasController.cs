@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Notas.Server.Models;
+using System.Globalization;
 
 namespace Notas.Server.Controllers
 {
@@ -18,12 +19,20 @@ namespace Notas.Server.Controllers
 
         [HttpPost]
         [Route("Agregar")]
-        public async Task<IActionResult> AgregarNota(Nota nota)
+        public async Task<IActionResult> AgregarNota(NotaDTO notaDTO)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
+            var nota = new Nota
+            {
+                Titulo = notaDTO.Titulo,
+                Descripcion = notaDTO.Descripcion,
+                IdCategoria = notaDTO.IdCategoria,
+                Fecha = DateTime.Now
+            };
 
             await _context.Notas.AddAsync(nota);
             await _context.SaveChangesAsync();
@@ -33,11 +42,26 @@ namespace Notas.Server.Controllers
 
         [HttpGet]
         [Route("Consultar")]
-        public async Task<ActionResult<IEnumerable<Nota>>> ConsultarNota()
+        public async Task<ActionResult<IEnumerable<Nota>>> Consultar()
         {
-            var notas = await _context.Notas.ToListAsync();
+            var notas = await _context.Notas
+                        .Select(n => new {
+                           n.Id,
+                           n.Titulo,
+                           n.Descripcion,
+                           n.IdCategoria,
+                           Fecha = n.Fecha.ToString("dd/MM/yy/ HH:mm")
+                        })
+                        .ToListAsync();
 
-            return Ok(notas);
+            if (notas == null || notas.Count == 0)
+            {
+                return NotFound("No existen los datos que buscas");
+            }
+            else
+            {
+                return Ok(notas);
+            }
         }
 
         [HttpGet]
@@ -87,6 +111,7 @@ namespace Notas.Server.Controllers
                 notaExistente!.Titulo = nota.Titulo;
                 notaExistente!.Descripcion = nota.Descripcion;
                 notaExistente!.IdCategoria = nota.IdCategoria;
+                notaExistente!.Fecha = DateTime.Now;
 
 
                 await _context.SaveChangesAsync();
