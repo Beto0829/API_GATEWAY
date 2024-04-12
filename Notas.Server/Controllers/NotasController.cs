@@ -98,7 +98,7 @@ namespace Notas.Server.Controllers
 
         [HttpPut]
         [Route("Actualizar")]
-        public async Task<IActionResult> ActualizarNota(int id, Nota nota)
+        public async Task<IActionResult> ActualizarNota(int id, NotaDTO notaDTO)
         {
             var notaExistente = await _context.Notas.FindAsync(id);
 
@@ -108,9 +108,9 @@ namespace Notas.Server.Controllers
             }
             else
             {
-                notaExistente!.Titulo = nota.Titulo;
-                notaExistente!.Descripcion = nota.Descripcion;
-                notaExistente!.IdCategoria = nota.IdCategoria;
+                notaExistente!.Titulo = notaDTO.Titulo;
+                notaExistente!.Descripcion = notaDTO.Descripcion;
+                notaExistente!.IdCategoria = notaDTO.IdCategoria;
                 notaExistente!.Fecha = DateTime.Now;
 
 
