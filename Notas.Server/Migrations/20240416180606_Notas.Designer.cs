@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Notas.Server.Models;
 
@@ -11,9 +12,11 @@ using Notas.Server.Models;
 namespace Notas.Server.Migrations
 {
     [DbContext(typeof(MiDbContext))]
-    partial class MiDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240416180606_Notas")]
+    partial class Notas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -25,9 +25,25 @@ namespace Notas.Server.Models
                 .HasIndex(c => c.Nombre)
                 .IsUnique();
 
+            //Insertar Categoria
             modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 1, Nombre = "Sin categoria" });
-            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 2, Nombre = "Devops" });
-            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 3, Nombre = "Cloud" });
+            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 2, Nombre = "Ejercicio" });
+            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 3, Nombre = "Diario" });
+            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 4, Nombre = "Recetas" });
+            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 5, Nombre = "Pendientes" });
+            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 6, Nombre = "Compras pendientes" });
+            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 7, Nombre = "Comandos .Net" });
+
+
+            //Insertar Notas
+            modelBuilder.Entity<Nota>().HasData(new Nota { Id = 1, Titulo = "Dia 16", Descripcion = "Hoy me senti muy bien fui por helado y luego comi pizza", IdCategoria = 3, Fecha = DateTime.Now});
+            modelBuilder.Entity<Nota>().HasData(new Nota { Id = 2, Titulo = "Palanca", Descripcion = "Realizar 5 repeticiones con 40 segundos de descanso entre repeticiones", IdCategoria = 2, Fecha = DateTime.Now });
+            modelBuilder.Entity<Nota>().HasData(new Nota { Id = 3, Titulo = "Barra", Descripcion = "Hacer 45 repeticiones minimo diario sobre la barra", IdCategoria = 2, Fecha = DateTime.Now });
+            modelBuilder.Entity<Nota>().HasData(new Nota { Id = 4, Titulo = "Milanesa", Descripcion = "Pollo, panco, aceite, pimienta, chipotle, salsa de ajo, perejil", IdCategoria = 4, Fecha = DateTime.Now });
+            modelBuilder.Entity<Nota>().HasData(new Nota { Id = 5, Titulo = "Pastas en salsa de champiñones", Descripcion = "Pastas, Pollo, crema de champiñones, pimenton, cebolla, pimienta, salsa, leche y crema de leche", IdCategoria = 4, Fecha = DateTime.Now });
+            modelBuilder.Entity<Nota>().HasData(new Nota { Id = 6, Titulo = "Masa de pizza", Descripcion = "Arina, levadura, pasta de tomate", IdCategoria = 4, Fecha = DateTime.Now });
+            modelBuilder.Entity<Nota>().HasData(new Nota { Id = 7, Titulo = "Migrar BD", Descripcion = "add-migration (nombredelamigracion; update-database;)", IdCategoria = 7, Fecha = DateTime.Now });
+
         }
 
     }

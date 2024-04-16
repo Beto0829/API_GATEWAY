@@ -33,7 +33,7 @@ namespace Notas.Server.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Titulo = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Descripcion = table.Column<string>(type: "nvarchar(999)", maxLength: 999, nullable: false),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IdCategoria = table.Column<int>(type: "int", nullable: false),
                     Fecha = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -54,8 +54,26 @@ namespace Notas.Server.Migrations
                 values: new object[,]
                 {
                     { 1, "Sin categoria" },
-                    { 2, "Devops" },
-                    { 3, "Cloud" }
+                    { 2, "Ejercicio" },
+                    { 3, "Diario" },
+                    { 4, "Recetas" },
+                    { 5, "Pendientes" },
+                    { 6, "Compras pendientes" },
+                    { 7, "Comandos .Net" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Notas",
+                columns: new[] { "Id", "Descripcion", "Fecha", "IdCategoria", "Titulo" },
+                values: new object[,]
+                {
+                    { 1, "Hoy me senti muy bien fui por helado y luego comi pizza", new DateTime(2024, 4, 16, 13, 6, 5, 231, DateTimeKind.Local).AddTicks(2288), 3, "Dia 16" },
+                    { 2, "Realizar 5 repeticiones con 40 segundos de descanso entre repeticiones", new DateTime(2024, 4, 16, 13, 6, 5, 231, DateTimeKind.Local).AddTicks(2323), 2, "Palanca" },
+                    { 3, "Hacer 45 repeticiones minimo diario sobre la barra", new DateTime(2024, 4, 16, 13, 6, 5, 231, DateTimeKind.Local).AddTicks(2343), 2, "Barra" },
+                    { 4, "Pollo, panco, aceite, pimienta, chipotle, salsa de ajo, perejil", new DateTime(2024, 4, 16, 13, 6, 5, 231, DateTimeKind.Local).AddTicks(2362), 4, "Milanesa" },
+                    { 5, "Pastas, Pollo, crema de champiñones, pimenton, cebolla, pimienta, salsa, leche y crema de leche", new DateTime(2024, 4, 16, 13, 6, 5, 231, DateTimeKind.Local).AddTicks(2381), 4, "Pastas en salsa de champiñones" },
+                    { 6, "Arina, levadura, pasta de tomate", new DateTime(2024, 4, 16, 13, 6, 5, 231, DateTimeKind.Local).AddTicks(2403), 4, "Masa de pizza" },
+                    { 7, "add-migration (nombredelamigracion; update-database;)", new DateTime(2024, 4, 16, 13, 6, 5, 231, DateTimeKind.Local).AddTicks(2422), 7, "Migrar BD" }
                 });
 
             migrationBuilder.CreateIndex(

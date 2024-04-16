@@ -11,8 +11,9 @@ namespace Notas.Server.Models
         public required string Titulo { get; set; }
 
         [DataType(DataType.MultilineText)]
-        [MaxLength(999, ErrorMessage = "El campo {0} debe tener maximo {1} caracteres.")]
+        [MaxLength]
         public required string Descripcion { get; set; }
+
 
         public int IdCategoria { get; set; }
 
