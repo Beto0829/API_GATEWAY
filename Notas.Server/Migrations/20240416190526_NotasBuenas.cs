@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Notas.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class Notas : Migration
+    public partial class NotasBuenas : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -67,13 +67,13 @@ namespace Notas.Server.Migrations
                 columns: new[] { "Id", "Descripcion", "Fecha", "IdCategoria", "Titulo" },
                 values: new object[,]
                 {
-                    { 1, "Hoy me senti muy bien fui por helado y luego comi pizza", new DateTime(2024, 4, 16, 13, 6, 5, 231, DateTimeKind.Local).AddTicks(2288), 3, "Dia 16" },
-                    { 2, "Realizar 5 repeticiones con 40 segundos de descanso entre repeticiones", new DateTime(2024, 4, 16, 13, 6, 5, 231, DateTimeKind.Local).AddTicks(2323), 2, "Palanca" },
-                    { 3, "Hacer 45 repeticiones minimo diario sobre la barra", new DateTime(2024, 4, 16, 13, 6, 5, 231, DateTimeKind.Local).AddTicks(2343), 2, "Barra" },
-                    { 4, "Pollo, panco, aceite, pimienta, chipotle, salsa de ajo, perejil", new DateTime(2024, 4, 16, 13, 6, 5, 231, DateTimeKind.Local).AddTicks(2362), 4, "Milanesa" },
-                    { 5, "Pastas, Pollo, crema de champiñones, pimenton, cebolla, pimienta, salsa, leche y crema de leche", new DateTime(2024, 4, 16, 13, 6, 5, 231, DateTimeKind.Local).AddTicks(2381), 4, "Pastas en salsa de champiñones" },
-                    { 6, "Arina, levadura, pasta de tomate", new DateTime(2024, 4, 16, 13, 6, 5, 231, DateTimeKind.Local).AddTicks(2403), 4, "Masa de pizza" },
-                    { 7, "add-migration (nombredelamigracion; update-database;)", new DateTime(2024, 4, 16, 13, 6, 5, 231, DateTimeKind.Local).AddTicks(2422), 7, "Migrar BD" }
+                    { 1, "Hoy me senti muy bien fui por helado y luego comi pizza", new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4182), 3, "Dia 16" },
+                    { 2, "Realizar 5 repeticiones con 40 segundos de descanso entre repeticiones", new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4223), 2, "Palanca" },
+                    { 3, "Hacer 45 repeticiones minimo diario sobre la barra", new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4251), 2, "Barra" },
+                    { 4, "Pollo, panco, aceite, pimienta, chipotle, salsa de ajo, perejil", new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4277), 4, "Milanesa" },
+                    { 5, "Pastas, Pollo, crema de champiñones, pimenton, cebolla, pimienta, salsa, leche y crema de leche", new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4304), 4, "Pastas en salsa de champiñones" },
+                    { 6, "Arina, levadura, pasta de tomate", new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4334), 4, "Masa de pizza" },
+                    { 7, "add-migration (nombredelamigracion; update-database;)", new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4361), 7, "Migrar BD" }
                 });
 
             migrationBuilder.CreateIndex(

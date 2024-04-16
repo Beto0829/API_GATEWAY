@@ -11,7 +11,7 @@ namespace Notas.Server.Models
         public required string Titulo { get; set; }
 
         [DataType(DataType.MultilineText)]
-        [MaxLength]
+        [MaxLength(-1)]
         public required string Descripcion { get; set; }
 
 
