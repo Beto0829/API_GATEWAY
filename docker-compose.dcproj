@@ -4,7 +4,7 @@
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
     <DockerPublishLocally>False</DockerPublishLocally>
-    <ProjectGuid>2a241dad-60da-4031-82d1-8fbc3c449ca5</ProjectGuid>
+    <ProjectGuid>8a14c9ec-e2f0-464c-8f91-d8ddf6af7a20</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>notas.server</DockerServiceName>

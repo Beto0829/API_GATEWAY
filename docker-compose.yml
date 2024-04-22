@@ -1,25 +1,14 @@
 version: '3.4'
 
 services:
-
-  gateway.api:
-    image: ${DOCKER_REGISTRY-}gatewayapi
-    build:
-      context: .
-      dockerfile: Gateway.Api/Dockerfile
-    ports:
-      - "5205:5205"
-    networks:
-     - proxybackend
-
   notas.server:
     image: ${DOCKER_REGISTRY-}notasserver
     build:
       context: .
       dockerfile: Notas.Server/Dockerfile
     depends_on: 
-            - database
-  database:
+            - databaseNotas
+  databaseNotas:
     image: mcr.microsoft.com/mssql/server:2017-latest
     container_name: SqlServerNotas
     environment:
@@ -27,19 +16,17 @@ services:
       SA_PASSWORD: "!1PasswordBackEnd."
       MSSQL_PID: "Developer"
     ports:
-      - "5081:5081"
-    hostname: backdb-container-nota
-    networks:
-     - proxybackend
-    
+      - "1433:1433"
+    hostname: backdb-container
+
   usuarios.server:
     image: ${DOCKER_REGISTRY-}usuariosserver
     build:
       context: .
       dockerfile: Usuarios.Server/Dockerfile
     depends_on: 
-            - db
-  db:
+            - databaseUsuarios
+  databaseUsuarios:
     image: mcr.microsoft.com/mssql/server:2017-latest
     container_name: SqlServerUsuarios
     environment:
@@ -47,15 +34,6 @@ services:
       SA_PASSWORD: "!1PasswordBackEnd."
       MSSQL_PID: "Developer"
     ports:
-      - "5027:5027"
-    hostname: backdb-container-usuario
-    networks:
-     - proxybackend
-
-networks:
-  proxybackend:
-    name: proxybackend
-    driver: bridge
-
-
+      - "1445:1444"
+    hostname: backdb-container-2
 
