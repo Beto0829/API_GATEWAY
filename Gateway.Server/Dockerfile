@@ -3,23 +3,23 @@
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER app
 WORKDIR /app
-EXPOSE 80
-ENV ASPNETCORE_URLS=http://+:80
+EXPOSE 8080
+EXPOSE 8081
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Usuarios.Server/Usuarios.Server.csproj", "Usuarios.Server/"]
-RUN dotnet restore "./Usuarios.Server/Usuarios.Server.csproj"
+COPY ["Gateway.Server/Gateway.Api.csproj", "Gateway.Server/"]
+RUN dotnet restore "./Gateway.Server/Gateway.Api.csproj"
 COPY . .
-WORKDIR "/src/Usuarios.Server"
-RUN dotnet build "./Usuarios.Server.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/Gateway.Server"
+RUN dotnet build "./Gateway.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Usuarios.Server.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./Gateway.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Usuarios.Server.dll"]
+ENTRYPOINT ["dotnet", "Gateway.Api.dll"]
