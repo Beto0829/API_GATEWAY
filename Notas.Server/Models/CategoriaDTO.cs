@@ -10,6 +10,9 @@ namespace Notas.Server.Models
         [MaxLength(255, ErrorMessage = "El campo {0} debe tener maximo {1} caracteres.")]
         public string Nombre { get; set; }
 
+        [MaxLength(255, ErrorMessage = "El campo {0} debe tener maximo {1} caracteres.")]
+        public string Email { get; set; }
+
         public List<Nota>? Notas { get; set; }
     }
 }

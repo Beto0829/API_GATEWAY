@@ -21,19 +21,14 @@ namespace Notas.Server.Models
            .HasForeignKey(n => n.IdCategoria)   // La clave foránea en Nota apunta a IdCategoria
            .IsRequired();
 
-            modelBuilder.Entity<Categoria>()
-                .HasIndex(c => c.Nombre)
-                .IsUnique();
-
             //Insertar Categoria
-            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 1, Nombre = "Sin categoria" });
-            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 2, Nombre = "Ejercicio" });
-            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 3, Nombre = "Diario" });
-            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 4, Nombre = "Recetas" });
-            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 5, Nombre = "Pendientes" });
-            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 6, Nombre = "Compras pendientes" });
-            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 7, Nombre = "Comandos .Net" });
-
+            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 1, Nombre = "Sin categoria", Email = "admin@gmail.com" });
+            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 2, Nombre = "Ejercicio", Email = "admin@gmail.com" });
+            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 3, Nombre = "Diario", Email = "admin@gmail.com" });
+            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 4, Nombre = "Recetas", Email = "admin@gmail.com" });
+            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 5, Nombre = "Pendientes", Email = "admin@gmail.com" });
+            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 6, Nombre = "Compras pendientes", Email = "admin@gmail.com" });
+            modelBuilder.Entity<Categoria>().HasData(new Categoria { Id = 7, Nombre = "Comandos .Net", Email = "admin@gmail.com" });
 
             //Insertar Notas
             modelBuilder.Entity<Nota>().HasData(new Nota { Id = 1, Titulo = "Dia 16", Descripcion = "Hoy me senti muy bien fui por helado y luego comi pizza", IdCategoria = 3, Fecha = DateTime.Now});

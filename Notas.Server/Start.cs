@@ -30,14 +30,17 @@ namespace Notas.Server
             new Categoria
             {
                 Nombre = "Deportes",
+                Email = "admin@gmail.com"
             },
              new Categoria
             {
                 Nombre = "UPC",
+                 Email = "admin@gmail.com"
             },
               new Categoria
             {
                 Nombre = "GYM",
+                 Email = "admin@gmail.com"
             },
         };
 

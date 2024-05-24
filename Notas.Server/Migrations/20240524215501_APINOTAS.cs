@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Notas.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class NotasBuenas : Migration
+    public partial class APINOTAS : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,7 +19,8 @@ namespace Notas.Server.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
+                    Nombre = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -50,16 +51,16 @@ namespace Notas.Server.Migrations
 
             migrationBuilder.InsertData(
                 table: "Categorias",
-                columns: new[] { "Id", "Nombre" },
+                columns: new[] { "Id", "Email", "Nombre" },
                 values: new object[,]
                 {
-                    { 1, "Sin categoria" },
-                    { 2, "Ejercicio" },
-                    { 3, "Diario" },
-                    { 4, "Recetas" },
-                    { 5, "Pendientes" },
-                    { 6, "Compras pendientes" },
-                    { 7, "Comandos .Net" }
+                    { 1, "admin@gmail.com", "Sin categoria" },
+                    { 2, "admin@gmail.com", "Ejercicio" },
+                    { 3, "admin@gmail.com", "Diario" },
+                    { 4, "admin@gmail.com", "Recetas" },
+                    { 5, "admin@gmail.com", "Pendientes" },
+                    { 6, "admin@gmail.com", "Compras pendientes" },
+                    { 7, "admin@gmail.com", "Comandos .Net" }
                 });
 
             migrationBuilder.InsertData(
@@ -67,20 +68,14 @@ namespace Notas.Server.Migrations
                 columns: new[] { "Id", "Descripcion", "Fecha", "IdCategoria", "Titulo" },
                 values: new object[,]
                 {
-                    { 1, "Hoy me senti muy bien fui por helado y luego comi pizza", new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4182), 3, "Dia 16" },
-                    { 2, "Realizar 5 repeticiones con 40 segundos de descanso entre repeticiones", new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4223), 2, "Palanca" },
-                    { 3, "Hacer 45 repeticiones minimo diario sobre la barra", new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4251), 2, "Barra" },
-                    { 4, "Pollo, panco, aceite, pimienta, chipotle, salsa de ajo, perejil", new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4277), 4, "Milanesa" },
-                    { 5, "Pastas, Pollo, crema de champiñones, pimenton, cebolla, pimienta, salsa, leche y crema de leche", new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4304), 4, "Pastas en salsa de champiñones" },
-                    { 6, "Arina, levadura, pasta de tomate", new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4334), 4, "Masa de pizza" },
-                    { 7, "add-migration (nombredelamigracion; update-database;)", new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4361), 7, "Migrar BD" }
+                    { 1, "Hoy me senti muy bien fui por helado y luego comi pizza", new DateTime(2024, 5, 24, 16, 55, 0, 649, DateTimeKind.Local).AddTicks(5077), 3, "Dia 16" },
+                    { 2, "Realizar 5 repeticiones con 40 segundos de descanso entre repeticiones", new DateTime(2024, 5, 24, 16, 55, 0, 649, DateTimeKind.Local).AddTicks(5141), 2, "Palanca" },
+                    { 3, "Hacer 45 repeticiones minimo diario sobre la barra", new DateTime(2024, 5, 24, 16, 55, 0, 649, DateTimeKind.Local).AddTicks(5169), 2, "Barra" },
+                    { 4, "Pollo, panco, aceite, pimienta, chipotle, salsa de ajo, perejil", new DateTime(2024, 5, 24, 16, 55, 0, 649, DateTimeKind.Local).AddTicks(5196), 4, "Milanesa" },
+                    { 5, "Pastas, Pollo, crema de champiñones, pimenton, cebolla, pimienta, salsa, leche y crema de leche", new DateTime(2024, 5, 24, 16, 55, 0, 649, DateTimeKind.Local).AddTicks(5224), 4, "Pastas en salsa de champiñones" },
+                    { 6, "Arina, levadura, pasta de tomate", new DateTime(2024, 5, 24, 16, 55, 0, 649, DateTimeKind.Local).AddTicks(5253), 4, "Masa de pizza" },
+                    { 7, "add-migration (nombredelamigracion; update-database;)", new DateTime(2024, 5, 24, 16, 55, 0, 649, DateTimeKind.Local).AddTicks(5279), 7, "Migrar BD" }
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Categorias_Nombre",
-                table: "Categorias",
-                column: "Nombre",
-                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Notas_IdCategoria",

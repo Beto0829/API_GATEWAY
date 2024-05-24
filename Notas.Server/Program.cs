@@ -47,7 +47,7 @@ namespace Notas.Server
 
             app.MapControllers();
 
-            MigrateDbContextExtensions.InitializeDatabase(app);
+            //MigrateDbContextExtensions.InitializeDatabase(app);
 
             app.Run();
         }

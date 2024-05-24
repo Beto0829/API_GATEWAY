@@ -30,6 +30,11 @@ namespace Notas.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -37,45 +42,49 @@ namespace Notas.Server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Nombre")
-                        .IsUnique();
-
                     b.ToTable("Categorias");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
+                            Email = "admin@gmail.com",
                             Nombre = "Sin categoria"
                         },
                         new
                         {
                             Id = 2,
+                            Email = "admin@gmail.com",
                             Nombre = "Ejercicio"
                         },
                         new
                         {
                             Id = 3,
+                            Email = "admin@gmail.com",
                             Nombre = "Diario"
                         },
                         new
                         {
                             Id = 4,
+                            Email = "admin@gmail.com",
                             Nombre = "Recetas"
                         },
                         new
                         {
                             Id = 5,
+                            Email = "admin@gmail.com",
                             Nombre = "Pendientes"
                         },
                         new
                         {
                             Id = 6,
+                            Email = "admin@gmail.com",
                             Nombre = "Compras pendientes"
                         },
                         new
                         {
                             Id = 7,
+                            Email = "admin@gmail.com",
                             Nombre = "Comandos .Net"
                         });
                 });
@@ -114,7 +123,7 @@ namespace Notas.Server.Migrations
                         {
                             Id = 1,
                             Descripcion = "Hoy me senti muy bien fui por helado y luego comi pizza",
-                            Fecha = new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4182),
+                            Fecha = new DateTime(2024, 5, 24, 16, 55, 0, 649, DateTimeKind.Local).AddTicks(5077),
                             IdCategoria = 3,
                             Titulo = "Dia 16"
                         },
@@ -122,7 +131,7 @@ namespace Notas.Server.Migrations
                         {
                             Id = 2,
                             Descripcion = "Realizar 5 repeticiones con 40 segundos de descanso entre repeticiones",
-                            Fecha = new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4223),
+                            Fecha = new DateTime(2024, 5, 24, 16, 55, 0, 649, DateTimeKind.Local).AddTicks(5141),
                             IdCategoria = 2,
                             Titulo = "Palanca"
                         },
@@ -130,7 +139,7 @@ namespace Notas.Server.Migrations
                         {
                             Id = 3,
                             Descripcion = "Hacer 45 repeticiones minimo diario sobre la barra",
-                            Fecha = new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4251),
+                            Fecha = new DateTime(2024, 5, 24, 16, 55, 0, 649, DateTimeKind.Local).AddTicks(5169),
                             IdCategoria = 2,
                             Titulo = "Barra"
                         },
@@ -138,7 +147,7 @@ namespace Notas.Server.Migrations
                         {
                             Id = 4,
                             Descripcion = "Pollo, panco, aceite, pimienta, chipotle, salsa de ajo, perejil",
-                            Fecha = new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4277),
+                            Fecha = new DateTime(2024, 5, 24, 16, 55, 0, 649, DateTimeKind.Local).AddTicks(5196),
                             IdCategoria = 4,
                             Titulo = "Milanesa"
                         },
@@ -146,7 +155,7 @@ namespace Notas.Server.Migrations
                         {
                             Id = 5,
                             Descripcion = "Pastas, Pollo, crema de champiñones, pimenton, cebolla, pimienta, salsa, leche y crema de leche",
-                            Fecha = new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4304),
+                            Fecha = new DateTime(2024, 5, 24, 16, 55, 0, 649, DateTimeKind.Local).AddTicks(5224),
                             IdCategoria = 4,
                             Titulo = "Pastas en salsa de champiñones"
                         },
@@ -154,7 +163,7 @@ namespace Notas.Server.Migrations
                         {
                             Id = 6,
                             Descripcion = "Arina, levadura, pasta de tomate",
-                            Fecha = new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4334),
+                            Fecha = new DateTime(2024, 5, 24, 16, 55, 0, 649, DateTimeKind.Local).AddTicks(5253),
                             IdCategoria = 4,
                             Titulo = "Masa de pizza"
                         },
@@ -162,7 +171,7 @@ namespace Notas.Server.Migrations
                         {
                             Id = 7,
                             Descripcion = "add-migration (nombredelamigracion; update-database;)",
-                            Fecha = new DateTime(2024, 4, 16, 14, 5, 25, 890, DateTimeKind.Local).AddTicks(4361),
+                            Fecha = new DateTime(2024, 5, 24, 16, 55, 0, 649, DateTimeKind.Local).AddTicks(5279),
                             IdCategoria = 7,
                             Titulo = "Migrar BD"
                         });

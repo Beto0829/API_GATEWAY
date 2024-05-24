@@ -14,7 +14,6 @@ namespace Notas.Server.Models
         [MaxLength(-1)]
         public required string Descripcion { get; set; }
 
-
         public int IdCategoria { get; set; }
 
         public DateTime Fecha { get; set; }
