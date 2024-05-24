@@ -22,7 +22,8 @@ namespace Usuarios.Server.Models
                 .HasIndex(u => u.Email)
                 .IsUnique();
 
-            modelBuilder.Entity<Usuario>().HasData(new Usuario { Id = 1, UserName = "Test", Email = "test@gmail.com", Password = "123456" });
+            modelBuilder.Entity<Usuario>().HasData(new Usuario { Id = 2, UserName = "Test", Email = "test@gmail.com", Password = "123456" });
+            modelBuilder.Entity<Usuario>().HasData(new Usuario { Id = 1, UserName = "Admin", Email = "admin@gmail.com", Password = "123456" });
         }
     }
 }

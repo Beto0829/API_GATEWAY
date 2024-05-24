@@ -2,10 +2,12 @@
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Usuarios.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class MiMigration : Migration
+    public partial class APIUSER : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -28,7 +30,11 @@ namespace Usuarios.Server.Migrations
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "Id", "Email", "Password", "UserName" },
-                values: new object[] { 1, "test@gmail.com", "123456", "Test" });
+                values: new object[,]
+                {
+                    { 1, "admin@gmail.com", "123456", "Admin" },
+                    { 2, "test@gmail.com", "123456", "Test" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Usuarios_Email",

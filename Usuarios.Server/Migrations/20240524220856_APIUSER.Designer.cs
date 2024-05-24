@@ -11,8 +11,8 @@ using Usuarios.Server.Models;
 namespace Usuarios.Server.Migrations
 {
     [DbContext(typeof(MiDbContext))]
-    [Migration("20240402224555_MiMigration")]
-    partial class MiMigration
+    [Migration("20240524220856_APIUSER")]
+    partial class APIUSER
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,10 +60,17 @@ namespace Usuarios.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = 2,
                             Email = "test@gmail.com",
                             Password = "123456",
                             UserName = "Test"
+                        },
+                        new
+                        {
+                            Id = 1,
+                            Email = "admin@gmail.com",
+                            Password = "123456",
+                            UserName = "Admin"
                         });
                 });
 #pragma warning restore 612, 618

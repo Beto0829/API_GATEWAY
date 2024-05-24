@@ -41,9 +41,9 @@ namespace Usuarios.Server
             },
              new Usuario
             {
-                UserName = "test3",
-                Email = "test3@gmail.com",
-                Password = "test123",
+                UserName = "Admin",
+                Email = "admin@gmail.com",
+                Password = "123456",
             },
         };
 
